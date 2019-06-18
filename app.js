@@ -29,5 +29,7 @@ function getProfile(username) {
             
     });
 }
-getProfile("chalkers");
-getProfile("alenaholligan");
+// Restructuring and putting them into the array
+const users = ["chalkers", "alenaholligan"];
+
+users.forEach(getProfile);
