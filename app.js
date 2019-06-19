@@ -19,12 +19,17 @@ function getProfile(username) {
                 body += data.toString();
             });
             response.on('end', () => {
+                try{
                  // Parse the data
                 const profile = JSON.parse(body);
                 // console.dir(profile);
                 printMessage(username, profile.badges.length, profile.points.JavaScript);
                 // Print the data
+            } catch(error) {
+                console.error(error.message);
+            }
             });
+            
            
             
     });
