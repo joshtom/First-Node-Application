@@ -3,13 +3,9 @@
 const https = require('https');
 // Require http module for status code
 const http = require('http');
-
+// Require print module for printing out message and Errors
 const printMsg = require('./print.js');
 
-//Print error Messages
-function printError(error) {
-    console.log(error.message);
-}
 
 function get(username) {
     try{
@@ -29,14 +25,14 @@ function get(username) {
                     printMsg.printMessage(username, profile.badges.length, profile.points.JavaScript);
                     // Print the data
                 } catch(error) {
-                    printError(error);
+                    printMsg.printError(error);
                 }
                 });
             
         } else {
             const message = `There was an error getting the profile for ${username} (${http.STATUS_CODES[response.statusCode]})`;
             const statusCodeError = new Error(message);
-            printError(statusCodeError);
+            printMsg.printError(statusCodeError);
         }
             
     });
@@ -44,7 +40,7 @@ function get(username) {
     // Handling Errors
     request.on('error', printError);
  } catch(error){
-    printError(error);
+    printMsg.printError(error);
  }
 }
 
