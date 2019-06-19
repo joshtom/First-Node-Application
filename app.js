@@ -27,6 +27,9 @@ function getProfile(username) {
            
             
     });
+
+    // Handling Errors
+    request.on('error', error => console.log(`Problem with the request: ${error.message}`));
 }
 // Restructuring and putting them into the array
 // Also using the process method
