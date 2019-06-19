@@ -4,10 +4,6 @@ function printMessage(username, badgeCount, points) {
     console.log(message);
 }
 
-//Print error Messages
-function printError(error) {
-    console.log(error.message);
-}
+
 
 module.exports.printMessage = printMessage;
-module.exports.printError = printError;

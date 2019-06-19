@@ -6,6 +6,8 @@ const http = require('http');
 // Require print module for printing out message and Errors
 const printMsg = require('./print.js');
 
+const printE = require('./error.js')
+
 
 function get(username) {
     try{
