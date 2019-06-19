@@ -10,8 +10,9 @@ function printMessage(username, badgeCount, points) {
     console.log(message);
 }
 function getProfile(username) {
+    try{
     // Connect to the API URL (https://teamtreehouse.com/username.json)
-    const request = https.get(`https://teamtreehouse.com/${username}.json`, response => {
+    const request = https.get(`teamtreehouse.com/${username}.json`, response => {
             let body = "";
             // Read the Data
             response.on('data', data => {
@@ -29,7 +30,10 @@ function getProfile(username) {
     });
 
     // Handling Errors
-    request.on('error', error => console.log(`Problem with the request: ${error.message}`));
+    request.on('error', error => console.error(`Problem with the request: ${error.message}`));
+ } catch(error){
+    console.error(error.message);
+ }
 }
 // Restructuring and putting them into the array
 // Also using the process method
