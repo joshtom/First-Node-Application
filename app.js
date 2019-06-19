@@ -4,7 +4,6 @@
 
 //Require https module
 const https = require('https');
-const username = "chalkers";
 //Function to print message to the console
 function printMessage(username, badgeCount, points) {
     const message = `${username} has ${badgeCount} total badge(s) and ${points} points in Javascript`;
@@ -24,12 +23,12 @@ function getProfile(username) {
                 // console.dir(profile);
                 printMessage(username, profile.badges.length, profile.points.JavaScript);
                 // Print the data
-            })
+            });
            
             
     });
 }
 // Restructuring and putting them into the array
-const users = ["chalkers", "alenaholligan"];
-
+// Also using the process method
+const users = process.argv.slice(2);
 users.forEach(getProfile);
