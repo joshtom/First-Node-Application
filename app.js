@@ -12,7 +12,7 @@ function printMessage(username, badgeCount, points) {
 function getProfile(username) {
     try{
     // Connect to the API URL (https://teamtreehouse.com/username.json)
-    const request = https.get(`teamtreehouse.com/${username}.json`, response => {
+    const request = https.get(`https://teamtreehouse.com/${username}.json`, response => {
             let body = "";
             // Read the Data
             response.on('data', data => {
@@ -37,5 +37,6 @@ function getProfile(username) {
 }
 // Restructuring and putting them into the array
 // Also using the process method
+
 const users = process.argv.slice(2);
 users.forEach(getProfile);
